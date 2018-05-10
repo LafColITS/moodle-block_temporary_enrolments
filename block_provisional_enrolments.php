@@ -59,19 +59,17 @@ class block_temporary_enrolments extends block_base {
         }
 
         if ($CFG->block_temporary_enrolments_urgent_threshold_override && isset($this->config->urgent_threshold)) {
-            if ($this->config->urgent_threshold != $CFG->block_temporary_enrolments_urgent_threshold) {
-                $this->config->urgent_threshold = $CFG->block_temporary_enrolments_urgent_threshold;
-            }
+            $this->config->urgent_threshold = $CFG->block_temporary_enrolments_urgent_threshold;
         }
 
         if ($CFG->block_temporary_enrolments_student_message_override && isset($this->config->urgent_threshold)) {
-            if ($this->config->student_message != $CFG->block_temporary_enrolments_student_message) {
-                $this->config->student_message = $CFG->block_temporary_enrolments_student_message;
-            }
+            $this->config->student_message = $CFG->block_temporary_enrolments_student_message;
         }
 
+        // Default threshold to global setting.
         $threshold = ($CFG->block_temporary_enrolments_urgent_threshold) * 86400;
         if (isset($this->config->urgent_threshold)) {
+            // If instance config is set, use that instead.
             $threshold = $this->config->urgent_threshold;
             $threshold = explode(" ", $threshold);
             $threshold = ($threshold[0]) * 86400;
@@ -82,7 +80,7 @@ class block_temporary_enrolments extends block_base {
             $message = $this->config->student_message;
         }
 
-        $this->content = new stdClass;
+        $this->content = new stdClass();
         $this->content->footer = '';
 
         $context = context_course::instance($COURSE->id);
