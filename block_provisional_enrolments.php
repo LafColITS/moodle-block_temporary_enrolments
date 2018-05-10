@@ -95,7 +95,7 @@ class block_temporary_enrolments extends block_base {
             print_error('missingtemprole');
         }
 
-        if (has_capability('block/temporary_enrolments:canviewadmin', $context)) {
+        if (has_capability('block/temporary_enrolments:canviewall', $context)) {
             $tempusers = get_role_users($role->id, $context, true);
             $this->content->text = "<table class=\"block_temporary_enrolments_table\">"
                         . "<tr>"
