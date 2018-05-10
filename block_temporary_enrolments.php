@@ -22,7 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once($CFG->dirroot .'/blocks/temporary_enrolments/lib.php');
+require_once($CFG->dirroot . '/blocks/temporary_enrolments/lib.php');
+require_once($CFG->dirroot . '/local/temporary_enrolments/lib.php');
 
 class block_temporary_enrolments extends block_base {
 
@@ -58,13 +59,13 @@ class block_temporary_enrolments extends block_base {
             $filteropt->noclean = true;
         }
 
-        if ($CFG->block_temporary_enrolments_urgent_threshold_override && isset($this->config->urgent_threshold)) {
-            $this->config->urgent_threshold = $CFG->block_temporary_enrolments_urgent_threshold;
-        }
-
-        if ($CFG->block_temporary_enrolments_student_message_override && isset($this->config->urgent_threshold)) {
-            $this->config->student_message = $CFG->block_temporary_enrolments_student_message;
-        }
+        // if ($CFG->block_temporary_enrolments_urgent_threshold_override && isset($this->config->urgent_threshold)) {
+        //     $this->config->urgent_threshold = $CFG->block_temporary_enrolments_urgent_threshold;
+        // }
+        //
+        // if ($CFG->block_temporary_enrolments_student_message_override && isset($this->config->urgent_threshold)) {
+        //     $this->config->student_message = $CFG->block_temporary_enrolments_student_message;
+        // }
 
         // Default threshold to global setting.
         $threshold = ($CFG->block_temporary_enrolments_urgent_threshold) * 86400;
@@ -84,9 +85,10 @@ class block_temporary_enrolments extends block_base {
         $this->content->footer = '';
 
         $context = context_course::instance($COURSE->id);
-        if (!$role = $DB->get_record('role', array('shortname' => 'temporary_enrollment'))) {
-            print_error('missingtemprole');
-        }
+        $role = get_temp_role();
+        // if (!$role = $DB->get_record('role', array('shortname' => 'temporary_enrollment'))) {
+        //     print_error('missingtemprole');
+        // }
 
         if (has_capability('block/temporary_enrolments:canviewall', $context)) {
             $tempusers = get_role_users($role->id, $context, true);
