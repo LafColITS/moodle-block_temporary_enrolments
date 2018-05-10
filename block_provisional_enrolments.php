@@ -51,11 +51,6 @@ class block_temporary_enrolments extends block_base {
             return $this->content;
         }
 
-        if (!$CFG->local_temporary_enrolments_onoff) {
-            $this->content = 0;
-            return;
-        }
-
         $filteropt = new stdClass;
         $filteropt->overflowdiv = true;
         if ($this->content_is_trusted()) {
