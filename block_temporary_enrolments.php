@@ -32,7 +32,7 @@ class block_temporary_enrolments extends block_base {
     }
 
     public function applicable_formats() {
-        return array('course-view' => true, 'site-index' => true);
+        return array('course-view' => true);
     }
 
     public function instance_allow_multiple() {
