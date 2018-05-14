@@ -59,71 +59,82 @@ class block_temporary_enrolments extends block_base {
             $filteropt->noclean = true;
         }
 
-        // if ($CFG->block_temporary_enrolments_urgent_threshold_override && isset($this->config->urgent_threshold)) {
-        //     $this->config->urgent_threshold = $CFG->block_temporary_enrolments_urgent_threshold;
-        // }
-        //
-        // if ($CFG->block_temporary_enrolments_student_message_override && isset($this->config->urgent_threshold)) {
-        //     $this->config->student_message = $CFG->block_temporary_enrolments_student_message;
-        // }
+        $data = array();
 
-        // Default threshold to global setting.
-        $threshold = ($CFG->block_temporary_enrolments_urgent_threshold) * 86400;
-        if (isset($this->config->urgent_threshold)) {
-            // If instance config is set, use that instead.
-            $threshold = $this->config->urgent_threshold;
-            $threshold = explode(" ", $threshold);
-            $threshold = ($threshold[0]) * 86400;
-        }
-
-        $message = $CFG->block_temporary_enrolments_student_message;
-        if (! empty($this->config->student_message)) {
-            $message = $this->config->student_message;
-        }
+        $data['threshold'] = ($CFG->block_temporary_enrolments_urgent_threshold) * 86400;
+        $data['message'] = $CFG->block_temporary_enrolments_student_message;
+        $data['context'] = context_course::instance($COURSE->id);
+        $data['role'] = get_temp_role();
 
         $this->content = new stdClass();
         $this->content->footer = '';
 
-        $context = context_course::instance($COURSE->id);
-        $role = get_temp_role();
-        // if (!$role = $DB->get_record('role', array('shortname' => 'temporary_enrollment'))) {
-        //     print_error('missingtemprole');
-        // }
+        if (has_capability('block/temporary_enrolments:canviewall', $data['context'])) {
+            $this->content->text = $this->render_table($data);
+        } else {
+            $roleassignment = $DB->get_record('role_assignments', array(
+                'userid' => $USER->id,
+                'contextid' => $data['context']->id));
 
-        if (has_capability('block/temporary_enrolments:canviewall', $context)) {
-            $tempusers = get_role_users($role->id, $context, true);
-            $this->content->text = "<table class=\"block_temporary_enrolments_table\">"
-                        . "<tr>"
-                        . "<th>Student</th>"
-                        . "<th>Time Remaining</th>"
-                        . "</tr>";
-            if (count($tempusers) == 0) {
-                $this->content = 0;
-                return;
-            }
-            foreach ($tempusers as $tempuser) {
-                $roleassignment = $DB->get_record('role_assignments', array('userid' => $tempuser->id, 'contextid' => $context->id));
-                $expire = $DB->get_record('local_temporary_enrolments', array('roleassignid' => $roleassignment->id));
-                $t = $expire->timeend - time();
-                $timeleft = convert_duration($t);
-                $urgent = $t < $threshold ? " class=\"urgent\"" : "";
-                $this->content->text .= "<tr$urgent><td class=\"left\">" . fullname($tempuser) . "</td><td class=\"right\">$timeleft</td>";
-            }
-            $this->content->text .= "</tr></table>";
-        } else if ($usercourserole = $DB->get_record('role_assignments', array('userid' => $USER->id, 'contextid' => $context->id))) {
-            if ($usercourserole->roleid == $role->id) {
-                $expire = $DB->get_record('local_temporary_enrolments', array('roleassignid' => $usercourserole->id));
-                $t = $expire->timeend - time();
-                $timeleft = convert_duration($t);
-                $urgent = $t < $threshold ? " class=\"urgent\"" : "";
-                $message = preg_replace("/\{TIMELEFT\}/", "<span>$timeleft</span>", $message);
-                $this->content->text = "<p$urgent>$message</p>";
+            if ($roleassignment && $roleassignment->roleid == $data['role']->id) {
+                $this->content->text = $this->render_message($data);
             }
         }
 
         unset($filteropt); // Memory footprint.
 
         return $this->content;
+    }
+
+    private function render_table($data) {
+        global $DB;
+
+        $tempusers = get_role_users($data['role']->id, $data['context'], true);
+
+        $output = "";
+
+        if (count($tempusers) == 0) {
+            return "";
+        }
+
+        $output = "<table class=\"block_temporary_enrolments_table\">"
+                . "<tr>"
+                . "<th>Student</th>"
+                . "<th>Time Remaining</th>"
+                . "</tr>";
+
+        foreach ($tempusers as $tempuser) {
+            $roleassignment = $DB->get_record('role_assignments', array(
+                'userid' => $tempuser->id,
+                'contextid' => $data['context']->id));
+
+            $expire = $DB->get_record('local_temporary_enrolments', array(
+                'roleassignid' => $roleassignment->id));
+
+            $t = $expire->timeend - time();
+            $timeleft = convert_duration($t);
+
+            $urgent = $t < $data['threshold'] ? " class=\"urgent\"" : "";
+            $output .= "<tr$urgent><td class=\"left\">" . fullname($tempuser) . "</td><td class=\"right\">$timeleft</td>";
+        }
+        $output .= "</tr></table>";
+        return $output;
+    }
+
+    private function render_message($data) {
+        global $DB, $USER;
+
+        $roleassignment = $DB->get_record('role_assignments', array(
+            'userid' => $USER->id,
+            'contextid' => $data['context']->id));
+
+        $expire = $DB->get_record('local_temporary_enrolments', array('roleassignid' => $roleassignment->id));
+        $t = $expire->timeend - time();
+        $timeleft = convert_duration($t);
+
+        $urgent = $t < $data['threshold'] ? " class=\"urgent\"" : "";
+        $message = preg_replace("/\{TIMELEFT\}/", "<span>$timeleft</span>", $data['message']);
+        return "<p$urgent>$message</p>";
     }
 
     public function content_is_trusted() {

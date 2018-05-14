@@ -43,12 +43,6 @@ if ($ADMIN->fulltree) {
         3,
         $thresholds));
 
-    // $settings->add(new admin_setting_configcheckbox(
-    //     'block_temporary_enrolments_urgent_threshold_override',
-    //     get_string('admin_urgent_threshold_override_desc', 'block_temporary_enrolments'),
-    //     get_string('admin_urgent_threshold_override_subdesc', 'block_temporary_enrolments'),
-    //     0));
-
     $settings->add(new admin_setting_configtext(
         'block_temporary_enrolments_student_message',
         get_string('admin_student_message_desc', 'block_temporary_enrolments'),
@@ -56,10 +50,4 @@ if ($ADMIN->fulltree) {
         get_string('student_message_default', 'block_temporary_enrolments'),
         $paramtype = PARAM_RAW,
         $size = 50));
-
-    // $settings->add(new admin_setting_configcheckbox(
-    //     'block_temporary_enrolments_student_message_override',
-    //     get_string('admin_student_message_override_desc', 'block_temporary_enrolments'),
-    //     get_string('admin_student_message_override_subdesc', 'block_temporary_enrolments'),
-    //     0));
 }

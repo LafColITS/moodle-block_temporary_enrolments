@@ -1,4 +1,4 @@
-# README for Provisional Enrolments Block
+# README for Temporary Enrolments Block
 developed by Andy Zito at Hampshire College
 version: 0.0 2016-07-14
 
