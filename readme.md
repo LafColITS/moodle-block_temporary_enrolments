@@ -23,4 +23,4 @@ You can configure:
 
 1. The 'urgency threshold' for temporary enrolment display. 'Urgent' temporary enrolments will display more aggressively to teachers and students -- for example, being highlighted in the table of all temporary enrolments. The settings specifies how close to the expiration date an enrolment must be to count as urgent.
 
-2. The message displayed to students, which defaults to something like: "Time remaining in temporary enrollment: 2 days"
+2. The message displayed to students, which defaults to something like: "Time remaining in temporary enrolment: 2 days"

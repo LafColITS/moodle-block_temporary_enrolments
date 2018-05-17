@@ -46,6 +46,10 @@ class block_temporary_enrolments extends block_base {
     public function get_content() {
         global $CFG, $DB, $COURSE, $OUTPUT, $USER;
 
+        if (!property_exists($CFG, 'local_temporary_enrolments_onoff') || !$CFG->local_temporary_enrolments_onoff) {
+          return "";
+        }
+
         require_once($CFG->libdir . '/filelib.php');
 
         if ($this->content !== null) {

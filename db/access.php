@@ -44,14 +44,6 @@ $capabilities = array(
         ),
     ),
 
-    'block/temporary_enrolments:canconfig' => array(
-        'captype' => 'write',
-        'contextlevel' => CONTEXT_COURSE,
-        'archetypes' => array(
-            'manager' => CAP_ALLOW,
-        )
-    ),
-
     'block/temporary_enrolments:canviewall' => array(
         'captype' => 'read',
         'contextlevel' => CONTEXT_COURSE,

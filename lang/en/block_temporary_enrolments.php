@@ -24,19 +24,15 @@
 
 $string['admin_student_message_desc'] = 'Student display message';
 $string['admin_student_message_subdesc'] = 'What temporarily enrolled students see in the block';
-$string['admin_student_message_override_desc'] = 'Override student display message?';
-$string['admin_student_message_override_subdesc'] = 'Check this to override instance level student display message setting. This will alter any current instance level settings, and prevent further changes to the setting at the instance level.';
 $string['admin_urgent_threshold_desc'] = 'Urgent threshold default';
 $string['admin_urgent_threshold_subdesc'] = 'The point at which the student display message becomes a warning';
-$string['admin_urgent_threshold_override_desc'] = 'Override urgent threshold?';
-$string['admin_urgent_threshold_override_subdesc'] = 'Check this to override instance level urgent threshold setting. This will alter any current instance level settings, and prevent further changes to the setting at the instance level.';
 $string['pluginname'] = 'Temporary enrolments';
 $string['temporary_enrolments:canconfig'] = 'Configure provisional enrolments block';
 $string['temporary_enrolments:canviewall'] = 'View the admin table of temporarily enrolled students for a course';
 $string['temporary_enrolments:addinstance'] = 'Add an instance of the provisional enrolments block';
 $string['student_message'] = 'Student display message';
-$string['student_message_default'] = 'Time remaining in temporary enrollment: {TIMELEFT}';
-$string['title'] = 'Temporary enrollment';
+$string['student_message_default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
+$string['title'] = 'Temporary enrolment';
 $string['urgent_threshold'] = 'Urgent threshold';
 $string['warning_instance_level'] = 'Temporary enrolments plugin not enabled, it is required for this block to function.';
 $string['warning_admin_level'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';
