@@ -25,6 +25,9 @@
 defined('MOODLE_INTERNAL') || die;
 
 function convert_duration($seconds) {
+    if (!is_numeric($seconds) || $seconds < 0) {
+        return false;
+    }
     $seconds = round($seconds / 86400) * 86400; // Round to nearest days.
     if ($seconds < 86400) {
         $converted = "Less than a day";

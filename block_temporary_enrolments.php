@@ -44,17 +44,18 @@ class block_temporary_enrolments extends block_base {
     }
 
     public function get_content() {
-        global $CFG, $DB, $COURSE, $OUTPUT, $USER;
+        global $CFG, $DB, $COURSE, $USER;
 
+        // Check to make sure local_temporary_enrolments is installed and enabled.
         if (!property_exists($CFG, 'local_temporary_enrolments_onoff') || !$CFG->local_temporary_enrolments_onoff) {
           return "";
         }
 
-        require_once($CFG->libdir . '/filelib.php');
-
         if ($this->content !== null) {
             return $this->content;
         }
+
+        require_once($CFG->libdir . '/filelib.php');
 
         $filteropt = new stdClass;
         $filteropt->overflowdiv = true;
@@ -74,14 +75,14 @@ class block_temporary_enrolments extends block_base {
         $this->content->footer = '';
 
         if (has_capability('block/temporary_enrolments:canviewall', $data['context'])) {
-            $this->content->text = $this->render_table($data);
+            $this->content->text = $this->make_table($data);
         } else {
             $roleassignment = $DB->get_record('role_assignments', array(
                 'userid' => $USER->id,
                 'contextid' => $data['context']->id));
 
             if ($roleassignment && $roleassignment->roleid == $data['role']->id) {
-                $this->content->text = $this->render_message($data);
+                $this->content->text = $this->make_message($data);
             }
         }
 
@@ -90,7 +91,7 @@ class block_temporary_enrolments extends block_base {
         return $this->content;
     }
 
-    private function render_table($data) {
+    private function make_table($data) {
         global $DB;
 
         $tempusers = get_role_users($data['role']->id, $data['context'], true);
@@ -103,7 +104,7 @@ class block_temporary_enrolments extends block_base {
 
         $output = "<table class=\"block_temporary_enrolments_table\">"
                 . "<tr>"
-                . "<th>Student</th>"
+                . "<th>User</th>"
                 . "<th>Time Remaining</th>"
                 . "</tr>";
 
@@ -125,7 +126,7 @@ class block_temporary_enrolments extends block_base {
         return $output;
     }
 
-    private function render_message($data) {
+    private function make_message($data) {
         global $DB, $USER;
 
         $roleassignment = $DB->get_record('role_assignments', array(

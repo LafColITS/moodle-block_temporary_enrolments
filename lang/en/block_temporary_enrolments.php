@@ -34,5 +34,4 @@ $string['student_message'] = 'Student display message';
 $string['student_message_default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
 $string['title'] = 'Temporary enrolment';
 $string['urgent_threshold'] = 'Urgent threshold';
-$string['warning_instance_level'] = 'Temporary enrolments plugin not enabled, it is required for this block to function.';
 $string['warning_admin_level'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';

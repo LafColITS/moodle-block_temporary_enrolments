@@ -8,7 +8,7 @@ Feature: The temporary_enrolments block admin table (lists temporarily enrolled 
       | Test Course | test      | 15          |
     Given the following "users" exist:
       | username | firstname | lastname |
-      | userone  | One       | User     |
+      | testone  | Test      | One      |
     Given the following "roles" exist:
       | name                 | shortname |
       | Temporarily Enrolled | temp      |
@@ -21,12 +21,12 @@ Feature: The temporary_enrolments block admin table (lists temporarily enrolled 
     And I am on site homepage
     And I follow "Test Course"
     And I follow "Participants"
-    And I enrol "userone" user as "Temporarily Enrolled"
+    And I enrol "testone" user as "Temporarily Enrolled"
     When I am on site homepage
     And I follow "Test Course"
     And I turn editing mode on
     And I add the "Temporary enrolments" block
-    Then I should see "One User" in the ".block_temporary_enrolments" "css_element"
+    Then I should see "Test One" in the ".block_temporary_enrolments" "css_element"
     And I should see "2" in the ".block_temporary_enrolments" "css_element"
     And I should see "weeks" in the ".block_temporary_enrolments" "css_element"
 
@@ -37,7 +37,7 @@ Feature: The temporary_enrolments block admin table (lists temporarily enrolled 
       | Test Course | test      | 15          |
     Given the following "users" exist:
       | username | firstname | lastname |
-      | userone  | One       | User      |
+      | testone  | One       | User      |
     Given the following "roles" exist:
       | name                 | shortname |
       | Temporarily Enrolled | temp      |
@@ -50,12 +50,12 @@ Feature: The temporary_enrolments block admin table (lists temporarily enrolled 
     And I am on site homepage
     And I follow "Test Course"
     And I follow "Participants"
-    And I enrol "userone" user as "Temporarily Enrolled"
+    And I enrol "testone" user as "Temporarily Enrolled"
     When I am on site homepage
     And I follow "Test Course"
     And I turn editing mode on
     And I add the "Temporary enrolments" block
-    Then I should see "One User" in the ".block_temporary_enrolments" "css_element"
+    Then I should see "Test One" in the ".block_temporary_enrolments" "css_element"
     And I should see "2" in the ".block_temporary_enrolments" "css_element"
     And I should see "weeks" in the ".block_temporary_enrolments" "css_element"
     Given I am on site homepage
