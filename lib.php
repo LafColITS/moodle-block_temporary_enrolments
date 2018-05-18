@@ -34,18 +34,21 @@ function convert_duration($seconds) {
     } else {
         $weeks = floor($seconds / 604800);
         $days = round(($seconds % 604800) / 86400);
-        $converted = "";
+        $weeks_string = "";
+        $days_string = "";
         if ($weeks == 1) {
-            $converted .= "1&nbsp;week";
+            $weeks_string = "1&nbsp;week ";
         } else if ($weeks > 1) {
-            $converted .= $weeks . "&nbsp;weeks";
+            $weeks_string = $weeks . "&nbsp;weeks ";
         }
         if ($days == 1) {
-            $converted .= " 1&nbsp;day";
+            $days_string = "1&nbsp;day";
         } else if ($days > 1) {
-            $converted .= " $days&nbsp;days";
+            $days_string = "$days&nbsp;days";
         }
+        $converted = trim($weeks_string . $days_string);
     }
+
 
     return $converted;
 }
