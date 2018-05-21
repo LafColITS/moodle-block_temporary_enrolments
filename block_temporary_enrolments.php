@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+defined('MOODLE_INTERNAL') || die;
+
 require_once($CFG->dirroot . '/blocks/temporary_enrolments/lib.php');
 require_once($CFG->dirroot . '/local/temporary_enrolments/lib.php');
 
@@ -48,7 +50,7 @@ class block_temporary_enrolments extends block_base {
 
         // Check to make sure local_temporary_enrolments is installed and enabled.
         if (!property_exists($CFG, 'local_temporary_enrolments_onoff') || !$CFG->local_temporary_enrolments_onoff) {
-          return "";
+            return "";
         }
 
         if ($this->content !== null) {
