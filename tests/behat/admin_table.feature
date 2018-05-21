@@ -37,7 +37,7 @@ Feature: The temporary_enrolments block admin table (lists temporarily enrolled 
       | Test Course | test      | 15          |
     Given the following "users" exist:
       | username | firstname | lastname |
-      | testone  | One       | User      |
+      | testone  | Test      | One      |
     Given the following "roles" exist:
       | name                 | shortname |
       | Temporarily Enrolled | temp      |
