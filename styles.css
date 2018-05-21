@@ -3,7 +3,7 @@
 }
 
 .block_temporary_enrolments_table td,
-.block_temporary_enrolments_table th{
+.block_temporary_enrolments_table th {
     padding: 5px;
     border-bottom: 1px solid rgb(154, 154, 154);
 }
