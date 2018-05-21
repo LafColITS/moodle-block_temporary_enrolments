@@ -24,11 +24,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2018051000;
+$plugin->version = 2018052000;
 $plugin->requires = 2017111300;
 $plugin->component = 'block_temporary_enrolments';
-$plugin->maturity = MATURITY_ALPHA;
+$plugin->maturity = MATURITY_BETA;
 $plugin->release = '1.0.0';
 $plugin->dependencies = array(
-  'local_temporary_enrolments' => 2017060800
+  'local_temporary_enrolments' => 2017060800 // 1.0.0
 );
