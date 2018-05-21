@@ -1,16 +1,17 @@
 .block_temporary_enrolments_table {
-    width:100%;
+    width: 100%;
 }
 
-.block_temporary_enrolments_table td, .block_temporary_enrolments_table th{
-    padding:5px;
-    border-bottom:1px solid rgb(154,154,154);
+.block_temporary_enrolments_table td,
+.block_temporary_enrolments_table th{
+    padding: 5px;
+    border-bottom: 1px solid rgb(154, 154, 154);
 }
 
 .block_temporary_enrolments_table .urgent .right {
-    color:red;
+    color: red;
 }
 
-.block_temporary_enrolments.block .urgent span{
-    color:red;
+.block_temporary_enrolments.block .urgent span {
+    color: red;
 }
