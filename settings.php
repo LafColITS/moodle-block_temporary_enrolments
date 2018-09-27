@@ -31,32 +31,32 @@ if ($ADMIN->fulltree) {
         $settings->add(new admin_setting_heading(
             'block_temporary_enrolments_warning',
             '',
-            get_string('warning_admin_level', 'block_temporary_enrolments')));
+            get_string('settings:admin_warning', 'block_temporary_enrolments')));
     }
 
     $thresholds = array(
-        get_string('settings:thresholds:option_off'),
-        get_string('settings:thresholds:option_1'),
-        get_string('settings:thresholds:option_2'),
-        get_string('settings:thresholds:option_3'),
-        get_string('settings:thresholds:option_4'),
-        get_string('settings:thresholds:option_5'),
-        get_string('settings:thresholds:option_6'),
-        get_string('settings:thresholds:option_7'),
+        get_string('settings:thresholds:option_off', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_1', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_2', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_3', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_4', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_5', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_6', 'block_temporary_enrolments'),
+        get_string('settings:thresholds:option_7', 'block_temporary_enrolments'),
     );
 
     $settings->add(new admin_setting_configselect(
         'block_temporary_enrolments_urgent_threshold',
-        get_string('admin_urgent_threshold_desc', 'block_temporary_enrolments'),
-        get_string('admin_urgent_threshold_subdesc', 'block_temporary_enrolments'),
+        get_string('settings:threshold:desc', 'block_temporary_enrolments'),
+        get_string('settings:threshold:subdesc', 'block_temporary_enrolments'),
         3,
         $thresholds));
 
     $settings->add(new admin_setting_configtext(
         'block_temporary_enrolments_student_message',
-        get_string('admin_student_message_desc', 'block_temporary_enrolments'),
-        get_string('admin_student_message_subdesc', 'block_temporary_enrolments'),
-        get_string('student_message_default', 'block_temporary_enrolments'),
+        get_string('settings:student_message:desc', 'block_temporary_enrolments'),
+        get_string('settings:student_message:subdesc', 'block_temporary_enrolments'),
+        get_string('settings:student_message:default', 'block_temporary_enrolments'),
         $paramtype = PARAM_RAW,
         $size = 50));
 }

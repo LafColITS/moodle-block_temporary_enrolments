@@ -22,16 +22,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['admin_student_message_desc'] = 'Student display message';
-$string['admin_student_message_subdesc'] = 'What temporarily enrolled students see in the block';
-$string['admin_urgent_threshold_desc'] = 'Urgent threshold default';
-$string['admin_urgent_threshold_subdesc'] = 'The point at which the student display message becomes a warning';
 $string['pluginname'] = 'Temporary enrolments';
 $string['temporary_enrolments:canconfig'] = 'Configure provisional enrolments block';
 $string['temporary_enrolments:canviewall'] = 'View the admin table of temporarily enrolled students for a course';
 $string['temporary_enrolments:addinstance'] = 'Add an instance of the provisional enrolments block';
-$string['student_message'] = 'Student display message';
-$string['student_message_default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
+$string['settings:admin_warning'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';
+$string['settings:student_message:default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
+$string['settings:student_message:desc'] = 'Student display message';
+$string['settings:student_message:subdesc'] = 'What temporarily enrolled students see in the block';
+$string['settings:threshold:desc'] = 'Urgent threshold default';
 $string['settings:threshold:option_off'] = 'Off';
 $string['settings:threshold:option_1'] = '1';
 $string['settings:threshold:option_2'] = '2';
@@ -40,6 +39,5 @@ $string['settings:threshold:option_4'] = '4';
 $string['settings:threshold:option_5'] = '5';
 $string['settings:threshold:option_6'] = '6';
 $string['settings:threshold:option_7'] = '7';
+$string['settings:threshold:subdesc'] = 'The point at which the student display message becomes a warning';
 $string['title'] = 'Temporary enrolment';
-$string['urgent_threshold'] = 'Urgent threshold';
-$string['warning_admin_level'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';
