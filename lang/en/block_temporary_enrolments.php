@@ -22,6 +22,11 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['content:duration:day_plural'] = 'days';
+$string['content:duration:day_singular'] = 'day';
+$string['content:duration:less_than_a_day'] = 'Less than a day';
+$string['content:duration:week_plural'] = 'weeks';
+$string['content:duration:week_singular'] = 'week';
 $string['pluginname'] = 'Temporary enrolments';
 $string['temporary_enrolments:canconfig'] = 'Configure provisional enrolments block';
 $string['temporary_enrolments:canviewall'] = 'View the admin table of temporarily enrolled students for a course';
