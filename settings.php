@@ -34,7 +34,16 @@ if ($ADMIN->fulltree) {
             get_string('warning_admin_level', 'block_temporary_enrolments')));
     }
 
-    $thresholds = array('Off', '1 day', '2 days', '3 days', '4 days', '5 days', '6 days', '7 days');
+    $thresholds = array(
+        get_string('settings:thresholds:option_off'),
+        get_string('settings:thresholds:option_1'),
+        get_string('settings:thresholds:option_2'),
+        get_string('settings:thresholds:option_3'),
+        get_string('settings:thresholds:option_4'),
+        get_string('settings:thresholds:option_5'),
+        get_string('settings:thresholds:option_6'),
+        get_string('settings:thresholds:option_7'),
+    );
 
     $settings->add(new admin_setting_configselect(
         'block_temporary_enrolments_urgent_threshold',
