@@ -1,26 +1,29 @@
-# README for Temporary Enrolments Block
-developed by Andy Zito at Hampshire College
-version: 0.0 2016-07-14
+# Temporary Enrolments Block
 
-## Installation:
+## Prerequisites
 
-Unzip files into your Moodle blocks directory. This will create a folder called temporary_enrolments.
+This block requires the [Local Temporary Enrolments](https://moodle.org/plugins/local_temporary_enrolments) plugin to function.
 
-Go to the admin Notifications page to complete installation.
+## Use
 
-This block requires the temporary_enrolments plugin to function.
+Add this block to any course
 
-## Use:
+* For any user who is temporarily enrolled in the course (according to Local Temporary Enrolments), it will display the status of their enrolment and the time left until it expires.
+* For teachers/administrators, it will display a table listing students who are temporarily enrolled and their time remaining.
 
-Add this block to any course that uses temporary enrolment.
-
-* For any user who is temporarily enrolled in the course, it will display the status of their enrolment and the time left until it expires.
-* For teachers/administrators, it will display a list of students who are temporarily enrolled and their time remaining.
-
-## Settings:
+## Settings
 
 You can configure:
 
-1. The 'urgency threshold' for temporary enrolment display. 'Urgent' temporary enrolments will display more aggressively to teachers and students -- for example, being highlighted in the table of all temporary enrolments. The settings specifies how close to the expiration date an enrolment must be to count as urgent.
+1. The 'urgency threshold' for temporary enrolment display. 'Urgent' temporary enrolments will be styled to be more noticeable. The setting specifies how close to the expiration date an enrolment must be to count as urgent.
 
-2. The message displayed to students, which defaults to something like: "Time remaining in temporary enrolment: 2 days"
+2. The message displayed to students. Use the {TIMELEFT} flag to display the student's remaining enrolment time.
+
+## Versions
+
+This plugin is maintained with separate releases and branches for each major Moodle version. Currently there are versions available for 3.3, 3.4, and 3.5. This is the version for __Moodle master__.
+
+Releases are tagged based on the following pattern:
+[major].[minor].[patch]-[Moodle major version].[Moodle version specific patch]
+
+For example, v1.5.7-35.1 would be plugin vresion 1.5.7 for Moodle 35, and includes one Moodle 35 specific patch for this plugin version. It would have corresponding versions v1.5.7-34.X and v1.5.7-33.X.
