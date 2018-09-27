@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Displays users who are temporarily enrolled (as defined by the Temporary Enrolments plugin).
+ * MOODLE VERSION INFORMATION
+ *
+ * This file contains version information for the Temporary Enrolment Block by Andrew Zito
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS

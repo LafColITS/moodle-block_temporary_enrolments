@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Hampshire temporary_enrolments block
+ * Capability definitions for the Temporary Enrolments block.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS

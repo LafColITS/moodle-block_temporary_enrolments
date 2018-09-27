@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * temporary_enrolments block settings
+ * Temporary Enrolments block settings.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS

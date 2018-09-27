@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * temporary_enrolments block settings
+ * Temporary Enrolments block lib functions.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
@@ -24,6 +24,13 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Parse a number of seconds into a string stating the duration in weeks and days.
+ *
+ * @param int $seconds Number of seconds to convert.
+ *
+ * @return string The string representing the duration.
+ */
 function convert_duration($seconds) {
     if (!is_numeric($seconds) || $seconds < 0) {
         return false;
