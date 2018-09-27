@@ -22,6 +22,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['content:admin_table:time_remaining'] = 'Time Remaining';
+$string['content:admin_table:user'] = 'User';
 $string['content:duration:day_plural'] = 'days';
 $string['content:duration:day_singular'] = 'day';
 $string['content:duration:less_than_a_day'] = 'Less than a day';

@@ -104,10 +104,12 @@ class block_temporary_enrolments extends block_base {
             return "";
         }
 
+        $userstring = get_string('content:admin_table:user', 'block_temporary_enrolments');
+        $timeremaingstring =get_string('content:admin_table:time_remaining', 'block_temporary_enrolments');
         $output = "<table class=\"block_temporary_enrolments_table\">"
                 . "<tr>"
-                . "<th>User</th>"
-                . "<th>Time Remaining</th>"
+                . "<th>$userstring</th>"
+                . "<th>$timeremainingstring</th>"
                 . "</tr>";
 
         foreach ($tempusers as $tempuser) {
