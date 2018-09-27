@@ -35,14 +35,14 @@ if ($ADMIN->fulltree) {
     }
 
     $thresholds = array(
-        get_string('settings:thresholds:option_off', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_1', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_2', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_3', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_4', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_5', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_6', 'block_temporary_enrolments'),
-        get_string('settings:thresholds:option_7', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_off', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_1', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_2', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_3', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_4', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_5', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_6', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_7', 'block_temporary_enrolments'),
     );
 
     $settings->add(new admin_setting_configselect(
