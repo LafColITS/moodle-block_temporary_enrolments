@@ -23,8 +23,8 @@ env:
  global:
   - IGNORE_PATHS=tests
  matrix:
-  - DB=pgsql MOODLE_BRANCH=master
-  - DB=mysqli MOODLE_BRANCH=master
+  - DB=pgsql MOODLE_BRANCH=MOODLE_33_STABLE
+  - DB=mysqli MOODLE_BRANCH=MOODLE_33_STABLE
 
 before_install:
   - phpenv config-rm xdebug.ini
@@ -36,7 +36,7 @@ before_install:
 
 install:
   - moodle-plugin-ci add-plugin moodlehq/moodle-local_moodlecheck
-  - moodle-plugin-ci add-plugin LafColITS/moodle-local_temporary_enrolments
+  - moodle-plugin-ci add-plugin --branch=MOODLE_33_STABLE LafColITS/moodle-local_temporary_enrolments
   - moodle-plugin-ci install
 
 script:
