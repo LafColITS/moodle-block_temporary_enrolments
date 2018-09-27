@@ -49,7 +49,7 @@ class block_temporary_enrolments extends block_base {
         global $CFG, $DB, $COURSE, $USER;
 
         // Check to make sure local_temporary_enrolments is installed and enabled.
-        if (!property_exists($CFG, 'local_temporary_enrolments_onoff') || !$CFG->local_temporary_enrolments_onoff) {
+        if (!get_config('local_temporary_enrolments', 'onoff')) {
             return "";
         }
 
@@ -105,7 +105,7 @@ class block_temporary_enrolments extends block_base {
         }
 
         $userstring = get_string('content:admin_table:user', 'block_temporary_enrolments');
-        $timeremaingstring =get_string('content:admin_table:time_remaining', 'block_temporary_enrolments');
+        $timeremainingstring = get_string('content:admin_table:time_remaining', 'block_temporary_enrolments');
         $output = "<table class=\"block_temporary_enrolments_table\">"
                 . "<tr>"
                 . "<th>$userstring</th>"
