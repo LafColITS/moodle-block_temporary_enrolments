@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * temporary_enrolments block settings
+ * Temporary Enrolments block settings.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
@@ -31,23 +31,32 @@ if ($ADMIN->fulltree) {
         $settings->add(new admin_setting_heading(
             'block_temporary_enrolments_warning',
             '',
-            get_string('warning_admin_level', 'block_temporary_enrolments')));
+            get_string('settings:admin_warning', 'block_temporary_enrolments')));
     }
 
-    $thresholds = array('Off', '1 day', '2 days', '3 days', '4 days', '5 days', '6 days', '7 days');
+    $thresholds = array(
+        get_string('settings:threshold:option_off', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_1', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_2', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_3', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_4', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_5', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_6', 'block_temporary_enrolments'),
+        get_string('settings:threshold:option_7', 'block_temporary_enrolments'),
+    );
 
     $settings->add(new admin_setting_configselect(
         'block_temporary_enrolments_urgent_threshold',
-        get_string('admin_urgent_threshold_desc', 'block_temporary_enrolments'),
-        get_string('admin_urgent_threshold_subdesc', 'block_temporary_enrolments'),
+        get_string('settings:threshold:desc', 'block_temporary_enrolments'),
+        get_string('settings:threshold:subdesc', 'block_temporary_enrolments'),
         3,
         $thresholds));
 
     $settings->add(new admin_setting_configtext(
         'block_temporary_enrolments_student_message',
-        get_string('admin_student_message_desc', 'block_temporary_enrolments'),
-        get_string('admin_student_message_subdesc', 'block_temporary_enrolments'),
-        get_string('student_message_default', 'block_temporary_enrolments'),
+        get_string('settings:student_message:desc', 'block_temporary_enrolments'),
+        get_string('settings:student_message:subdesc', 'block_temporary_enrolments'),
+        get_string('settings:student_message:default', 'block_temporary_enrolments'),
         $paramtype = PARAM_RAW,
         $size = 50));
 }

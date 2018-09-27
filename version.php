@@ -15,7 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Displays users who are temporarily enrolled (as defined by the Temporary Enrolments plugin).
+ * MOODLE VERSION INFORMATION
+ *
+ * This file contains version information for the Temporary Enrolment Block by Andrew Zito
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
@@ -24,11 +26,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2018052034;
-$plugin->requires = 2017111300;
-$plugin->component = 'block_temporary_enrolments';
+$plugin->version = 2018092734;                      // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires = 2017111300;                     // Requires this Moodle version.
+$plugin->component = 'block_temporary_enrolments';  // Full name of the plugin (used for diagnostics).
 $plugin->maturity = MATURITY_BETA;
-$plugin->release = '1.0.0';
+$plugin->release = '1.0.1'; // Pattern: [major].[minor].[patch]-[Moodle Version].[Moodle version specific patch].
 $plugin->dependencies = array(
   'local_temporary_enrolments' => 2018032700 // 3.4.0
 );

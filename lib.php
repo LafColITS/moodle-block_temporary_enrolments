@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * temporary_enrolments block settings
+ * Temporary Enrolments block lib functions.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
@@ -24,27 +24,34 @@
 
 defined('MOODLE_INTERNAL') || die;
 
+/**
+ * Parse a number of seconds into a string stating the duration in weeks and days.
+ *
+ * @param int $seconds Number of seconds to convert.
+ *
+ * @return string The string representing the duration.
+ */
 function convert_duration($seconds) {
     if (!is_numeric($seconds) || $seconds < 0) {
         return false;
     }
     $seconds = round($seconds / 86400) * 86400; // Round to nearest days.
     if ($seconds < 86400) {
-        $converted = "Less than a day";
+        $converted = get_string('content:duration:less_than_a_day', 'block_temporary_enrolments');
     } else {
         $weeks = floor($seconds / 604800);
         $days = round(($seconds % 604800) / 86400);
         $sweeks = "";
         $sdays = "";
         if ($weeks == 1) {
-            $sweeks = "1&nbsp;week ";
+            $sweeks = '1&nbsp;' . get_string('content:duration:week_singular', 'block_temporary_enrolments') . ' ';
         } else if ($weeks > 1) {
-            $sweeks = $weeks . "&nbsp;weeks ";
+            $sweeks = "$weeks&nbsp;" . get_string('content:duration:week_plural', 'block_temporary_enrolments') . ' ';
         }
         if ($days == 1) {
-            $sdays = "1&nbsp;day";
+            $sdays = '1&nbsp;' . get_string('content:duration:day_singular', 'block_temporary_enrolments');
         } else if ($days > 1) {
-            $sdays = "$days&nbsp;days";
+            $sdays = "$days&nbsp;" . get_string('content:duration:day_plural', 'block_temporary_enrolments');
         }
         $converted = trim($sweeks . $sdays);
     }

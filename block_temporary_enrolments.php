@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Temporary Enrolments Block.
+ * Temporary Enrolments block definition.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
@@ -27,29 +27,58 @@ defined('MOODLE_INTERNAL') || die;
 require_once($CFG->dirroot . '/blocks/temporary_enrolments/lib.php');
 require_once($CFG->dirroot . '/local/temporary_enrolments/lib.php');
 
+/**
+ * Class which defines the block.
+ *
+ * @copyright  2018 onwards Lafayette College ITS
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 class block_temporary_enrolments extends block_base {
 
+    /**
+     * Initialize block properties.
+     */
     public function init() {
         $this->title = get_string('title', 'block_temporary_enrolments');
     }
 
+    /**
+     * Where can this block be added?
+     *
+     * @return array List of formats where this block can be added.
+     */
     public function applicable_formats() {
         return array('course-view' => true);
     }
 
+    /**
+     * Can multiple instances of this block be added within a single context?
+     *
+     * @return boolean Allow or disallow multiple block instances.
+     */
     public function instance_allow_multiple() {
         return false;
     }
 
+    /**
+     * Does this block have settings?
+     *
+     * @return boolean Whether or not this block has settings.
+     */
     public function has_config() {
         return true;
     }
 
+    /**
+     * Create the block content.
+     *
+     * @return object Object representing block content.
+     */
     public function get_content() {
         global $CFG, $DB, $COURSE, $USER;
 
         // Check to make sure local_temporary_enrolments is installed and enabled.
-        if (!property_exists($CFG, 'local_temporary_enrolments_onoff') || !$CFG->local_temporary_enrolments_onoff) {
+        if (!get_config('local_temporary_enrolments', 'onoff')) {
             return "";
         }
 
@@ -93,6 +122,13 @@ class block_temporary_enrolments extends block_base {
         return $this->content;
     }
 
+    /**
+     * Parse data and create markup for the admin table.
+     *
+     * @param array $data Associative array containing necessary data.
+     *
+     * @return string The markup representing the admin table.
+     */
     private function make_table($data) {
         global $DB;
 
@@ -104,10 +140,12 @@ class block_temporary_enrolments extends block_base {
             return "";
         }
 
+        $userstring = get_string('content:admin_table:user', 'block_temporary_enrolments');
+        $timeremainingstring = get_string('content:admin_table:time_remaining', 'block_temporary_enrolments');
         $output = "<table class=\"block_temporary_enrolments_table\">"
                 . "<tr>"
-                . "<th>User</th>"
-                . "<th>Time Remaining</th>"
+                . "<th>$userstring</th>"
+                . "<th>$timeremainingstring</th>"
                 . "</tr>";
 
         foreach ($tempusers as $tempuser) {
@@ -128,6 +166,13 @@ class block_temporary_enrolments extends block_base {
         return $output;
     }
 
+    /**
+     * Parse data and create the student message.
+     *
+     * @param array $data Associative array containing necessary data.
+     *
+     * @return string The student message.
+     */
     private function make_message($data) {
         global $DB, $USER;
 
@@ -144,6 +189,11 @@ class block_temporary_enrolments extends block_base {
         return "<p$urgent>$message</p>";
     }
 
+    /**
+     * Determine whether or not we can allow JS here.
+     *
+     * @return boolean Whether or not we're in a secure enough context to allow JS.
+     */
     public function content_is_trusted() {
         global $SCRIPT;
 

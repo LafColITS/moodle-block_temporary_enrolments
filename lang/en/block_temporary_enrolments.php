@@ -15,23 +15,36 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version details.
+ * Lang strings for the Temporary Enrolments block.
  *
  * @package    block_temporary_enrolments
  * @copyright  2018 onwards Lafayette College ITS
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['admin_student_message_desc'] = 'Student display message';
-$string['admin_student_message_subdesc'] = 'What temporarily enrolled students see in the block';
-$string['admin_urgent_threshold_desc'] = 'Urgent threshold default';
-$string['admin_urgent_threshold_subdesc'] = 'The point at which the student display message becomes a warning';
+$string['content:admin_table:time_remaining'] = 'Time Remaining';
+$string['content:admin_table:user'] = 'User';
+$string['content:duration:day_plural'] = 'days';
+$string['content:duration:day_singular'] = 'day';
+$string['content:duration:less_than_a_day'] = 'Less than a day';
+$string['content:duration:week_plural'] = 'weeks';
+$string['content:duration:week_singular'] = 'week';
 $string['pluginname'] = 'Temporary enrolments';
-$string['temporary_enrolments:canconfig'] = 'Configure provisional enrolments block';
+$string['temporary_enrolments:addinstance'] = 'Add an instance of the temporary enrolments block';
 $string['temporary_enrolments:canviewall'] = 'View the admin table of temporarily enrolled students for a course';
-$string['temporary_enrolments:addinstance'] = 'Add an instance of the provisional enrolments block';
-$string['student_message'] = 'Student display message';
-$string['student_message_default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
+$string['temporary_enrolments:myaddinstance'] = 'You may not add the temporary enrolments block to the My Moodle page';
 $string['title'] = 'Temporary enrolment';
-$string['urgent_threshold'] = 'Urgent threshold';
-$string['warning_admin_level'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';
+$string['settings:admin_warning'] = 'WARNING! Temporary enrolments plugin is not enabled. Please enable it for the proper functioning of this block.';
+$string['settings:student_message:default'] = 'Time remaining in temporary enrolment: {TIMELEFT}';
+$string['settings:student_message:desc'] = 'Student display message';
+$string['settings:student_message:subdesc'] = 'What temporarily enrolled students see in the block';
+$string['settings:threshold:desc'] = 'Urgent threshold default';
+$string['settings:threshold:option_1'] = '1 days';
+$string['settings:threshold:option_2'] = '2 days';
+$string['settings:threshold:option_3'] = '3 days';
+$string['settings:threshold:option_4'] = '4 days';
+$string['settings:threshold:option_5'] = '5 days';
+$string['settings:threshold:option_6'] = '6 days';
+$string['settings:threshold:option_7'] = '7 days';
+$string['settings:threshold:option_off'] = 'Off';
+$string['settings:threshold:subdesc'] = 'The point at which the student display message becomes a warning';
