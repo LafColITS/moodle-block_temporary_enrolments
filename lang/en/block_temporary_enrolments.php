@@ -30,6 +30,7 @@ $string['content:duration:less_than_a_day'] = 'Less than a day';
 $string['content:duration:week_plural'] = 'weeks';
 $string['content:duration:week_singular'] = 'week';
 $string['pluginname'] = 'Temporary enrolments';
+$string['privacy:metadata'] = 'This plugin does not store any user data -- it just displays data stored by the local_temporary_enrolments plugin.';
 $string['temporary_enrolments:addinstance'] = 'Add an instance of the temporary enrolments block';
 $string['temporary_enrolments:canviewall'] = 'View the admin table of temporarily enrolled students for a course';
 $string['temporary_enrolments:myaddinstance'] = 'You may not add the temporary enrolments block to the My Moodle page';
