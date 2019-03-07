@@ -26,11 +26,11 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2018092700;                      // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version = 2019030700;                      // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires = 2018051702;                     // Requires this Moodle version.
 $plugin->component = 'block_temporary_enrolments';  // Full name of the plugin (used for diagnostics).
 $plugin->maturity = MATURITY_BETA;
-$plugin->release = '1.0.1'; // Pattern: [major].[minor].[patch]-[Moodle Version].[Moodle version specific patch].
+$plugin->release = '1.0.2'; // Pattern: [major].[minor].[patch]-[Moodle Version].[Moodle version specific patch].
 $plugin->dependencies = array(
   'local_temporary_enrolments' => 2018092600 // Master.
 );
