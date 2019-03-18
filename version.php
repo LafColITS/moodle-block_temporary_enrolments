@@ -32,5 +32,5 @@ $plugin->component = 'block_temporary_enrolments';  // Full name of the plugin (
 $plugin->maturity = MATURITY_BETA;
 $plugin->release = '1.0.2-36.0'; // Pattern: [major].[minor].[patch]-[Moodle Version].[Moodle version specific patch].
 $plugin->dependencies = array(
-  'local_temporary_enrolments' => 2018092600 // Master.
+  'local_temporary_enrolments' => 2019031336 // Master.
 );
