@@ -21,7 +21,7 @@ You can configure:
 
 ## Versions
 
-This plugin is maintained with separate releases and branches for each major Moodle version. Currently there are versions available for 3.3, 3.4, and 3.5. This is the version for __Moodle master__.
+This plugin is maintained with separate releases and branches for each major Moodle version. Currently there are versions available for 3.3, 3.4, 3.5, and 3.6. This is the version for __Moodle master__.
 
 Releases are tagged based on the following pattern:
 [major].[minor].[patch]-[Moodle major version].[Moodle version specific patch]
