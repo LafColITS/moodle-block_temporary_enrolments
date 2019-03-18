@@ -23,9 +23,10 @@ php:
 env:
  global:
   - IGNORE_PATHS=tests
+  - MOODLE_BRANCH=MOODLE_36_STABLE
  matrix:
-  - DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
-  - DB=mysqli MOODLE_BRANCH=MOODLE_36_STABLE
+  - DB=pgsql
+  - DB=mysqli
 
 before_install:
   - phpenv config-rm xdebug.ini
