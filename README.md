@@ -1,5 +1,7 @@
 # Temporary Enrolments Block
 
+[RETIRED] This plugin is no longer maintained and there will be no further releases.
+
 ## Prerequisites
 
 This block requires the [Local Temporary Enrolments](https://moodle.org/plugins/local_temporary_enrolments) plugin to function.
